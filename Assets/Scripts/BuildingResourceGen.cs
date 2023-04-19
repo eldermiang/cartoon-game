@@ -13,6 +13,7 @@ public class BuildingResourceGen : MonoBehaviour
     private int generatedAmount = 100;
     Coroutine generateCoroutine;
     private bool generateRunning = false;
+    public PlayerManagerTest player;
 
     private void Update() {
         if (!generateRunning) {
@@ -41,6 +42,7 @@ public class BuildingResourceGen : MonoBehaviour
     //Collect current resources and add it to the player's stash
     //Will have to figure out how to do this from a gameObject on click or compose into another element (button?)
     public void Collect() {
-
+        int amountUsed = player.AddElixir(resourceCurrCapacity);
+        resourceCurrCapacity -= amountUsed;
     }
 }

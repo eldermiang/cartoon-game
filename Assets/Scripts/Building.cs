@@ -23,4 +23,9 @@ public class Building : MonoBehaviour
 
     //Stores the level + meshes and sprites for each building level
     [SerializeField] private Level[] _levels = null;
+
+    //Destroys the building game object
+    public void Destroy() {
+        Destroy(gameObject);
+    }
 }
