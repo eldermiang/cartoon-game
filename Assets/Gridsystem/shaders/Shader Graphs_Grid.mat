@@ -40,6 +40,6 @@ Material:
     - _Thickness: 0.1272
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 0}
-    - _DefaultScale: {r: 1, g: 3, b: 0, a: 0}
-    - _Size: {r: 2, g: 2, b: 0, a: 0}
+    - _DefaultScale: {r: 1, g: 4, b: 0, a: 0}
+    - _Size: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []

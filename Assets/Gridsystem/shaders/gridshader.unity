@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 670850730}
   - component: {fileID: 670850729}
   m_Layer: 0
-  m_Name: Square
+  m_Name: testBuilding
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,6 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76cfe8848e2e0f6489f494925bcd16a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  snapToGrid: 1
 --- !u!61 &670850730
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -240,7 +241,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 670850728}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.448, y: 0.5907169, z: 0}
+  m_LocalPosition: {x: -3.944, y: 0.525, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -274,8 +275,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1385461991}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.498, y: 2.202, z: 0}
-  m_LocalScale: {x: 18.907618, y: 11.801642, z: 1}
+  m_LocalPosition: {x: -1.516, y: 4.889, z: 0}
+  m_LocalScale: {x: 21.191616, y: 16.0649, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1846451149}
@@ -501,8 +502,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1890121041}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.84, y: 2.245, z: 0}
-  m_LocalScale: {x: 1.19925, y: 1.343156, z: 1}
+  m_LocalPosition: {x: -0.86, y: 4.77, z: 0}
+  m_LocalScale: {x: 1.3124112, y: 1.7817942, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1846451149}

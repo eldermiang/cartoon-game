@@ -9,21 +9,21 @@ public class DragDrop : MonoBehaviour
     private float startPosX;
     private float startPosY;
     private bool isBeingHeld = false;
-
-    private void Start()
-    {
-        Debug.Log(Input.mousePosition);
-    }
-
+    public bool snapToGrid = true;
 
     void Update()
     {
-        if ( isBeingHeld == true)
+        if ( isBeingHeld )
         {
             Vector3 mousePos;
             mousePos = Input.mousePosition;
             mousePos = Camera.main.ScreenToWorldPoint(mousePos);
-            this.gameObject.transform.localPosition = new Vector3(mousePos.x, mousePos.y, 0);
+            this.gameObject.transform.localPosition = new Vector3(mousePos.x - startPosX, mousePos.y - startPosY, 0);
+
+            if (snapToGrid)
+            {
+                transform.position = new Vector3(Mathf.RoundToInt(mousePos.x - startPosX), Mathf.RoundToInt(mousePos.y - startPosY), 0);
+            }
         }
     }
 
@@ -36,6 +36,10 @@ public class DragDrop : MonoBehaviour
             mousePos = Input.mousePosition;
             mousePos = Camera.main.ScreenToWorldPoint(mousePos);
             Debug.Log(mousePos);
+
+
+            startPosX = mousePos.x - this.transform.localPosition.x;
+            startPosY = mousePos.y - this.transform.localPosition.y;
 
             isBeingHeld = true;
 
