@@ -1,6 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <ui:VisualElement style="align-items: stretch; justify-content: flex-start;">
-        <ui:Button text="Destroy" display-tooltip-when-elided="true" name="destroyButton" style="width: 107px;" />
-        <ui:Button text="Collect" display-tooltip-when-elided="true" name="collectButton" style="width: 106px; position: relative; top: auto; left: auto; align-items: stretch;" />
-    </ui:VisualElement>
-</ui:UXML>

@@ -1,31 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Public enum to handle referencing player resources
+public enum Resource {
+    Elixir,
+    Gold
+}
 public class PlayerManagerTest : MonoBehaviour
 {
-    private int elixirCapacity = 3000;
-    private int goldCapacity = 3000;
-    private int elixir = 0;
-    private int gold = 0;
-    //Add amount of resource to the player's current resource
+    //Collections for storing player data
+    Dictionary<Resource, int> maxCapacity = new Dictionary<Resource, int>();
+    Dictionary<Resource, int> stats = new Dictionary<Resource, int>();
+    //Add base values to the dictionary
+    private void OnEnable() {
+        maxCapacity.Add(Resource.Elixir, 1000);
+        maxCapacity.Add(Resource.Gold, 1000);
+        stats.Add(Resource.Elixir, 0);
+        stats.Add(Resource.Gold, 0);
+    }
+    //Add amount of specified resource to the player's current specified resource
     //Returns the amount of resources consumed (Returns 0 if resources are capped)
-    public int AddElixir(int amount) {
+    public int AddResource(int amount, Resource resourceType) {
         int amountUsed = amount;
-        elixir += amount;
-        //Resource overcap scenario
-        if (elixir > elixirCapacity) {
-            amountUsed -= elixir - elixirCapacity;
+        stats[resourceType] += amount;
+        //Resource overflow scenario
+        if (stats[resourceType] > maxCapacity[resourceType]) {
+            amountUsed -= stats[resourceType] - maxCapacity[resourceType];
             if (amountUsed < 0) {
                 amountUsed = 0;
             }
-            //Set current resource to maximum resource
-            elixir = elixirCapacity;
+            stats[resourceType] = maxCapacity[resourceType];
         }
-        Debug.Log("Current player elixir: " + elixir);
+        Debug.Log($"Current player {resourceType}: {stats[resourceType]}");
         return amountUsed;
-    }
-    public void AddGold(int amount) {
-
     }
 }
