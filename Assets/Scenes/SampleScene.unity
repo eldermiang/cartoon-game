@@ -441,7 +441,7 @@ MonoBehaviour:
   Cam: {fileID: 519420031}
   zoomStep: 1
   minCamSize: 1
-  maxCamSize: 10
+  maxCamSize: 9
   mapRenderer: {fileID: 330684939}
 --- !u!1 &1172188769
 GameObject:
