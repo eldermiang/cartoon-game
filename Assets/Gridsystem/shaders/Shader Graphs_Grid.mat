@@ -37,9 +37,9 @@ Material:
     m_Floats:
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 2
-    - _Thickness: 0.1272
+    - _Thickness: 0.1083
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 0}
-    - _DefaultScale: {r: 1, g: 4, b: 0, a: 0}
-    - _Size: {r: 1, g: 1, b: 0, a: 0}
+    - _DefaultScale: {r: 1, g: 5, b: 0, a: 0}
+    - _Size: {r: 1, g: 3, b: 0, a: 0}
   m_BuildTextureStacks: []
