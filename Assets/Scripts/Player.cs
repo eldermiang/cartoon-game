@@ -15,12 +15,6 @@ public class Player : MonoBehaviour
 
     public Button exitButton;
 
-    public void increaseResource(int value)
-    {
-        Resource += value;
-        ResourceText.text = "Resource: " + Resource;
-    }
-
     private void Awake()
     {
         Instance = this;
@@ -41,6 +35,16 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space)){
             increaseResource(5);
         }
+    }
+
+    public void increaseResource(int value)
+    {
+        Resource += value;
+        ResourceText.text = "Resource: " + Resource;
+
+        LoginController.players[Name] += value;
+
+        Debug.Log(LoginController.players[Name]);
     }
 
     private void Exit() {
