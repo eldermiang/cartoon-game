@@ -5,6 +5,7 @@ public class BuildingUI : MonoBehaviour
     private GameObject selectedBuilding;
     //Raycasts at the current mouse position after a mouse click, if a building is detected, enable the UI for that building
     //If no building is detected disable the UI for the currently selected building
+    //Note: The UI is the first child of the building game object
     private void Update() {
         if (Input.GetMouseButtonDown(0)) {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -22,7 +23,7 @@ public class BuildingUI : MonoBehaviour
             }
             else {
                 //Check if the mouse click occurred over a UI element (prevent building UI from disabling on clicking a UI element)
-                if (!isOverUI) {
+                if (!isOverUI && selectedBuilding) {
                     selectedBuilding.transform.GetChild(0).gameObject.SetActive(false);
                 }
             }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BuildingResourceGen : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class BuildingResourceGen : MonoBehaviour
     private bool generateRunning = false;
     [SerializeField] private PlayerManagerTest player;
     [SerializeField] private Resource resourceType;
+    public UnityEvent<Resource, int> onResourceQuantityChange;
 
     private void Update() {
         if (!generateRunning) {
@@ -26,10 +28,11 @@ public class BuildingResourceGen : MonoBehaviour
     private IEnumerator Generate() {
         generateRunning = true;
         resourceCurrCapacity += generatedAmount;
+        //Invoke resource quantity change event
+        onResourceQuantityChange.Invoke(resourceType, resourceCurrCapacity);
         if (resourceCurrCapacity > resourceMaxCapacity) {
             resourceCurrCapacity = resourceMaxCapacity;
         }
-        Debug.Log($"Current {resourceType}: {resourceCurrCapacity}");
         yield return new WaitForSeconds(GENERATE_DELAY);
         if (resourceCurrCapacity < resourceMaxCapacity) {
             StartCoroutine(Generate());
@@ -42,5 +45,6 @@ public class BuildingResourceGen : MonoBehaviour
     public void Collect() {
         int amountUsed = player.AddResource(resourceCurrCapacity, resourceType);
         resourceCurrCapacity -= amountUsed;
+        onResourceQuantityChange.Invoke(resourceType, resourceCurrCapacity);
     }
 }
