@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class DragDrop : MonoBehaviour
 {
-
+    private bool moveEnabled = false;
     private float startPosX;
     private float startPosY;
     private bool isBeingHeld = false;
@@ -30,7 +30,7 @@ public class DragDrop : MonoBehaviour
     private void OnMouseDown()
 
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && moveEnabled)
         {
             Vector3 mousePos;
             mousePos = Input.mousePosition;
@@ -48,6 +48,11 @@ public class DragDrop : MonoBehaviour
 
     private void OnMouseUp() {
         isBeingHeld = false;
+        moveEnabled = false;
     } 
+
+    public void onMoveButtonClicked() {
+        moveEnabled = true;
+    }
 
 }
